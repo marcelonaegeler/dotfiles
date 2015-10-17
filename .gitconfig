@@ -1,0 +1,13 @@
+[github]
+	user = marcelonaegeler
+
+[bitbucket.org]
+	user = marcelonaegeler
+
+[alias]
+	cm = commit -m
+	co = checkout
+	changes = log --pretty=format:\"%h %cr %cn %Cgreen%s%Creset\" --name-status
+
+[ghi]
+	editor = vim
