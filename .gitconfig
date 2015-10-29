@@ -5,9 +5,15 @@
 	user = marcelonaegeler
 
 [alias]
+	aa = add .
 	cm = commit -m
 	co = checkout
+	st = status
 	changes = log --pretty=format:\"%h %cr %cn %Cgreen%s%Creset\" --name-status
 
 [ghi]
 	editor = vim
+
+[user]
+	name = Marcelo A Naegeler
+	email = marcelo.andre.naegeler@gmail.com
