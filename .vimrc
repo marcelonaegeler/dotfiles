@@ -6,9 +6,10 @@ set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
 Plugin 'VundleVim/Vundle.vim'
-Plugin 'SirVer/ultisnips'
-Plugin 'honza/vim-snippets'
-Plugin 'digitaltoad/vim-jade'
+Plugin 'tpope/vim-fugitive'
+Plugin 'kien/ctrlp.vim'
+Plugin 'altercation/vim-colors-solarized'
+Plugin 'posva/vim-vue'
 
 let g:UltiSnipsExpandTrigger="<tab>"
 let g:UltiSnipsJumpForwardTrigger="<c-b>"
@@ -18,12 +19,16 @@ call vundle#end()
 
 filetype plugin indent on
 
+let g:ctrlp_custom_ignore='\v[\/](node_modules|target|dist)|(\.(swp|ico|git|svn))$'
+
 " Colors
+let g:solarized_termcolors=256
 syntax enable
-colorscheme elflord
-" colorscheme badwolf
+set background=dark
+colorscheme solarized
 
 " Tabs
+set expandtab
 set tabstop=2
 set softtabstop=2
 set shiftwidth=2
