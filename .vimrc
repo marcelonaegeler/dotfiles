@@ -20,6 +20,9 @@ Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'scrooloose/nerdtree'
 Plugin 'maralla/completor.vim'
+Plugin 'lumiliet/vim-twig'
+Plugin 'editorconfig/editorconfig-vim'
+Plugin 'w0rp/ale'
 
 let g:UltiSnipsExpandTrigger="<tab>"
 let g:UltiSnipsJumpForwardTrigger="<c-b>"
@@ -31,7 +34,8 @@ autocmd FileType vue syntax sync fromstart
 
 filetype plugin indent on
 
-let g:ctrlp_custom_ignore='\v[\/](node_modules|target|dist)|(\.(swp|ico|git|svn))$'
+let g:ctrlp_custom_ignore='\v[\/](vendor|node_modules|target|dist)|(\.(swp|ico|git|svn|settings|scannerwork))$'
+let g:ctrlp_show_hidden=1
 
 " Fix some watchers bug
 set backupcopy=yes
@@ -64,3 +68,7 @@ nnoremap E $
 nnoremap gV `[v`]
 
 map <C-n> :NERDTreeToggle<CR>
+
+let g:ale_fixers = {
+\  'javascript': ['eslint', 'prettier'],
+\}
