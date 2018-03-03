@@ -1,5 +1,5 @@
 [github]
-	user = marcelonaegeler
+	user = mnaegeler
 
 [bitbucket.org]
 	user = marcelonaegeler
@@ -15,5 +15,13 @@
 	editor = vim
 
 [user]
-	name = Marcelo A Naegeler
+	name = Marcelo Andre Naegeler
 	email = marcelo.andre.naegeler@gmail.com
+[core]
+	excludesfile = /Users/mnaegeler/.gitignore_global
+[difftool "sourcetree"]
+	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+	path = 
+[mergetool "sourcetree"]
+	cmd = /Users/mnaegeler/Applications/Sourcetree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	trustExitCode = true

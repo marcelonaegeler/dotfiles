@@ -8,6 +8,7 @@ call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'tpope/vim-fugitive'
 Plugin 'kien/ctrlp.vim'
+Plugin 'mattn/emmet-vim'
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'posva/vim-vue'
 Plugin 'jiangmiao/auto-pairs'
@@ -34,7 +35,7 @@ autocmd FileType vue syntax sync fromstart
 
 filetype plugin indent on
 
-let g:ctrlp_custom_ignore='\v[\/](vendor|node_modules|target|dist)|(\.(swp|ico|git|svn|settings|scannerwork))$'
+let g:ctrlp_custom_ignore='\v[\/](vendor|node_modules|target|dist)|(\.(swp|ico|git|svn|settings|scannerwork|DS_Store))$'
 let g:ctrlp_show_hidden=1
 
 " Fix some watchers bug
@@ -47,11 +48,12 @@ set background=light
 colorscheme solarized
 
 " Tabs
-set expandtab
+" set expandtab
 set tabstop=2
 set softtabstop=2
 set shiftwidth=2
 set autoindent
+set smarttab
 
 set wildmenu
 set cursorline
