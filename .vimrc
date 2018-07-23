@@ -7,7 +7,6 @@ set rtp+=/usr/local/opt/fzf
 call vundle#begin()
 
 Plugin 'VundleVim/Vundle.vim'
-Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-repeat'
 Plugin 'tpope/vim-speeddating'
 Plugin 'tpope/vim-commentary'
@@ -15,6 +14,7 @@ Plugin 'tpope/vim-eunuch'
 Plugin 'tpope/vim-fugitive'
 
 Plugin 'junegunn/fzf.vim'
+Plugin 'jeetsukumaran/vim-buffergator'
 Plugin 'editorconfig/editorconfig-vim'
 Plugin 'scrooloose/nerdtree'
 Plugin 'w0rp/ale'
@@ -62,6 +62,7 @@ Plugin 'benmills/vimux'
 " Themes
 Plugin 'morhetz/gruvbox'
 
+Plugin 'tpope/vim-surround'
 call vundle#end()
 
 let mapleader='\'
@@ -69,13 +70,10 @@ set encoding=UTF-8
 set regexpengine=1
 
 filetype plugin indent on
-" autocmd FileType vue syntax sync fromstart
+autocmd FileType vue syntax sync fromstart
 
-" let g:ctrlp_custom_ignore='\v[\/](vendor|node_modules|target|dist|var\/cache|www\/lib/|tigre-colaborador\/plugins)|(\.(swp|ico|git|svn|settings|scannerwork|DS_Store))$'
-" let g:ctrlp_show_hidden=1
-" let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclude-standard']
-map <leader>g :GFiles<CR>
-map <leader>f :Files<CR>
+map <leader>f :GFiles<CR>
+map <leader>g :Files<CR>
 
 " let g:deoplete#enable_at_startup = 1
 
@@ -115,14 +113,12 @@ nnoremap B ^
 nnoremap E $
 nnoremap gV `[v`]
 
+" NERDTree
 map <C-o> :NERDTreeToggle<CR>
 
+" Special hidden chars
 set listchars=nbsp:¬,eol:⏎,tab:>-,extends:»,precedes:«,trail:•
 set list
-
-let g:ale_fixers = {
-\  'javascript': ['eslint', 'prettier'],
-\}
 
 " Lightline
 set laststatus=2
@@ -138,14 +134,22 @@ let g:lightline = {
   \ },
   \ }
 
-au BufWritePost *.php silent! !eval '[ -f ".git/hooks/ctags"  ] && .git/hooks/ctags' &
+let g:ale_fixers = {
+  \   'javascript': ['eslint', 'prettier']
+  \ }
 
 " ALE
 nmap <silent> <leader>aj :ALENext<cr>
 nmap <silent> <leader>ak :ALEPrevious<cr>
 
+" PHPCD
 let g:phpcd_php_cli_executable = '/usr/local/Cellar/php/7.2.7/bin/php'
 
+" GitGutter
+let g:gitgutter_realtime = 0
+
+" Tags
+au BufWritePost *.php silent! !eval '[ -f ".git/hooks/ctags"  ] && .git/hooks/ctags' &
 set tags=.git/tags
 " let g:gutentags_ctags_tagfile = '.git/tags'
 " let g:gutentags_ctags_exclude = ['.git', 'node_modules', 'vendor', 'www']
