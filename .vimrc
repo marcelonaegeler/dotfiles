@@ -99,8 +99,8 @@ set backspace=indent,eol,start
 " Colors
 let g:solarized_termcolors=256
 syntax enable
-set background=dark
-colorscheme spacegray
+set background=light
+colorscheme solarized
 
 " Tabs
 set expandtab
@@ -156,13 +156,15 @@ nmap <silent> <leader>aj :ALENext<cr>
 nmap <silent> <leader>ak :ALEPrevious<cr>
 
 " PHPCD
-let g:phpcd_php_cli_executable = '/usr/local/Cellar/php/7.2.7/bin/php'
+" let g:phpcd_php_cli_executable = '/usr/local/Cellar/php/7.2.7/bin/php'
+let g:phpcd_php_cli_executable = '/usr/bin/php'
 
 " GitGutter
 let g:gitgutter_realtime = 0
 
 " Tags
-au BufWritePost *.php silent! !eval '[ -f ".git/hooks/ctags"  ] && .git/hooks/ctags' &
+" au BufWritePost *.php silent! !eval '[ -f ".git/hooks/ctags"  ] && .git/hooks/ctags' &
+au BufWritePost *.php silent! !eval '[ -f ".git/hooks/ctags"  ]; and .git/hooks/ctags' &
 set tags=.git/tags
 " let g:gutentags_ctags_tagfile = '.git/tags'
 " let g:gutentags_ctags_exclude = ['.git', 'node_modules', 'vendor', 'www']
@@ -247,7 +249,7 @@ command! -nargs=? Fold :call     CocAction('fold', <f-args>)
 
 " Add diagnostic info for https://github.com/itchyny/lightline.vim
 let g:lightline = {
-      \ 'colorscheme': 'wombat',
+      \ 'colorscheme': 'solarized',
       \ 'active': {
       \   'left': [ [ 'mode', 'paste' ],
       \             [ 'gitbranch', 'cocstatus', 'readonly', 'filename', 'modified' ] ]
