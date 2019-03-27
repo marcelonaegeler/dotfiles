@@ -17,10 +17,10 @@ Plugin 'w0rp/ale'
 Plugin 'mattn/emmet-vim'
 Plugin 'jiangmiao/auto-pairs'
 Plugin 'alvan/vim-closetag'
-Plugin 'posva/vim-vue'
+" Plugin 'posva/vim-vue'
 Plugin 'wavded/vim-stylus'
 Plugin 'lumiliet/vim-twig'
-Plugin 'pangloss/vim-javascript'
+" Plugin 'pangloss/vim-javascript'
 Plugin 'hail2u/vim-css3-syntax'
 Plugin 'cakebaker/scss-syntax.vim'
 Plugin 'leafgarland/typescript-vim'
@@ -32,7 +32,6 @@ Plugin 'matchit.zip'
 Plugin 'yuttie/comfortable-motion.vim'
 Plugin 'terryma/vim-multiple-cursors'
 Plugin 'airblade/vim-gitgutter'
-Plugin 'altercation/vim-colors-solarized'
 
 Plugin 'wellle/targets.vim'
 Plugin 'tpope/vim-repeat'
@@ -43,7 +42,7 @@ Plugin 'tpope/vim-eunuch'
 Plugin 'tpope/vim-fugitive'
 
  " http://web-techno.net/vim-php-ide/
-Plugin 'StanAngeloff/php.vim'
+" Plugin 'StanAngeloff/php.vim'
 
 " Deoplete
 " Plugin 'Shougo/deoplete.nvim'
@@ -59,15 +58,17 @@ Plugin 'tobyS/pdv'
 " TMUX
 Plugin 'benmills/vimux'
 
-" CTags
-" Plugin 'ludovicchabant/vim-gutentags'
-
 " Conquer of Completion
 Plugin 'neoclide/coc.nvim'
 
 " Themes
-Plugin 'morhetz/gruvbox'
-Plugin 'ajh17/spacegray.vim'
+" Plugin 'altercation/vim-colors-solarized'
+" Plugin 'morhetz/gruvbox'
+" Plugin 'ajh17/spacegray.vim'
+Plugin 'trevordmiller/nova-vim'
+
+" Task management
+Plugin 'samsonw/vim-task'
 
 call vundle#end()
 
@@ -97,10 +98,10 @@ set backupcopy=yes
 set backspace=indent,eol,start
 
 " Colors
-let g:solarized_termcolors=256
+" let g:solarized_termcolors=256
+" set background=light
 syntax enable
-set background=light
-colorscheme solarized
+colorscheme nova
 
 " Tabs
 set expandtab
@@ -164,10 +165,8 @@ let g:gitgutter_realtime = 0
 
 " Tags
 " au BufWritePost *.php silent! !eval '[ -f ".git/hooks/ctags"  ] && .git/hooks/ctags' &
-au BufWritePost *.php silent! !eval '[ -f ".git/hooks/ctags"  ]; and .git/hooks/ctags' &
+au BufWritePost *.php,*.js,*.vue silent! !eval '[ -f ".git/hooks/ctags"  ]; and .git/hooks/ctags' &
 set tags=.git/tags
-" let g:gutentags_ctags_tagfile = '.git/tags'
-" let g:gutentags_ctags_exclude = ['.git', 'node_modules', 'vendor', 'www']
 
 " File creation maps
 map ,e :e <C-R>=expand("%:p:h") . "/" <CR>
@@ -249,7 +248,7 @@ command! -nargs=? Fold :call     CocAction('fold', <f-args>)
 
 " Add diagnostic info for https://github.com/itchyny/lightline.vim
 let g:lightline = {
-      \ 'colorscheme': 'solarized',
+      \ 'colorscheme': 'nova',
       \ 'active': {
       \   'left': [ [ 'mode', 'paste' ],
       \             [ 'gitbranch', 'cocstatus', 'readonly', 'filename', 'modified' ] ]
@@ -259,3 +258,18 @@ let g:lightline = {
       \   'gitbranch': 'fugitive#head'
       \ },
       \ }
+
+" Visual Search
+vnoremap // y/<C-R>"<CR>
+
+"" Vim Task
+" inoremap <silent> <buffer> <leader> <ESC>:call Toggle_task_status()<CR>i
+" noremap <silent> <buffer> <C-D-CR> :call Toggle_task_status()<CR>
+nmap <leader>d :call Toggle_task_status()<CR>
+
+autocmd BufNewFile,BufRead todo.txt,*.task,*.tasks setfiletype task
+autocmd BufNewFile,BufRead *.scss set filetype=scss.css
+autocmd FileType scss set omnifunc=csscomplete#CompleteCSS
+
+" Mouse support
+set mouse=a
