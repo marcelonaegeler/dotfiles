@@ -1,0 +1,16 @@
+session=/org/freedesktop/login1/session/$XDG_SESSION_ID
+iface=org.freedesktop.login1.Session
+dbus-monitor --system "type=signal,path=$session,interface=$iface" 2>/dev/null |
+ while read signal stamp sender arrow dest rest; do
+  case "$rest" in
+    *Lock)
+      pause $@
+;;
+    *Unlock)
+      source ~/.profile
+      resume $@
+;;  #unknown Session signal received
+    *)
+#      echo $signal $stamp $sender $arrow $dest $rest
+  esac
+done

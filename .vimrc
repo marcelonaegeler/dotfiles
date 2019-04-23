@@ -17,29 +17,21 @@ Plugin 'w0rp/ale'
 Plugin 'mattn/emmet-vim'
 Plugin 'jiangmiao/auto-pairs'
 Plugin 'alvan/vim-closetag'
-" Plugin 'posva/vim-vue'
+Plugin 'posva/vim-vue'
 Plugin 'wavded/vim-stylus'
 Plugin 'lumiliet/vim-twig'
-" Plugin 'pangloss/vim-javascript'
+Plugin 'pangloss/vim-javascript'
 Plugin 'hail2u/vim-css3-syntax'
 Plugin 'cakebaker/scss-syntax.vim'
 Plugin 'leafgarland/typescript-vim'
 Plugin 'fatih/vim-go'
-Plugin 'mxw/vim-jsx'
+" Plugin 'mxw/vim-jsx'
 Plugin 'sheerun/vim-polyglot'
 Plugin 'itchyny/lightline.vim'
 Plugin 'matchit.zip'
 Plugin 'yuttie/comfortable-motion.vim'
 Plugin 'terryma/vim-multiple-cursors'
 Plugin 'airblade/vim-gitgutter'
-
-Plugin 'wellle/targets.vim'
-Plugin 'tpope/vim-repeat'
-Plugin 'tpope/vim-speeddating'
-Plugin 'tpope/vim-surround'
-Plugin 'tpope/vim-commentary'
-Plugin 'tpope/vim-eunuch'
-Plugin 'tpope/vim-fugitive'
 
  " http://web-techno.net/vim-php-ide/
 " Plugin 'StanAngeloff/php.vim'
@@ -61,6 +53,14 @@ Plugin 'benmills/vimux'
 " Conquer of Completion
 Plugin 'neoclide/coc.nvim'
 
+Plugin 'wellle/targets.vim'
+Plugin 'tpope/vim-repeat'
+Plugin 'tpope/vim-speeddating'
+Plugin 'tpope/vim-surround'
+Plugin 'tpope/vim-commentary'
+Plugin 'tpope/vim-eunuch'
+Plugin 'tpope/vim-fugitive'
+
 " Themes
 " Plugin 'altercation/vim-colors-solarized'
 " Plugin 'morhetz/gruvbox'
@@ -73,6 +73,8 @@ Plugin 'samsonw/vim-task'
 call vundle#end()
 
 let mapleader='\'
+set ignorecase
+set infercase
 set encoding=UTF-8
 set regexpengine=1
 
@@ -269,7 +271,11 @@ nmap <leader>d :call Toggle_task_status()<CR>
 
 autocmd BufNewFile,BufRead todo.txt,*.task,*.tasks setfiletype task
 autocmd BufNewFile,BufRead *.scss set filetype=scss.css
+autocmd BufNewFile,BufRead *.js set filetype=javascript
 autocmd FileType scss set omnifunc=csscomplete#CompleteCSS
 
 " Mouse support
 set mouse=a
+
+" Command height
+set cmdheight=1

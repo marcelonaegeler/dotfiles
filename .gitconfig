@@ -1,27 +1,23 @@
 [github]
-	user = mnaegeler
+  user = mnaegeler
 
 [bitbucket.org]
-	user = marcelonaegeler
+  user = marcelonaegeler
 
 [alias]
-	aa = add .
-	cm = commit -m
-	co = checkout
-	st = status
-	changes = log --pretty=format:\"%h %cr %cn %Cgreen%s%Creset\" --name-status
+  aa = add .
+  cm = commit -m
+  co = checkout
+  st = status
+  changes = log --pretty=format:\"%h %cr %cn %Cgreen%s%Creset\" --name-status
 
 [ghi]
-	editor = vim
+  editor = vim
 
 [user]
-	name = Marcelo Andre Naegeler
-	email = marcelo.andre.naegeler@gmail.com
-[core]
-	excludesfile = /Users/mnaegeler/.gitignore_global
-[difftool "sourcetree"]
-	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
-	path = 
-[mergetool "sourcetree"]
-	cmd = /Users/mnaegeler/Applications/Sourcetree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
-	trustExitCode = true
+  name = Marcelo André Naegeler
+  email = marcelo.andre.naegeler@gmail.com
+[init]
+  templatedir = ~/.git_template
+[diff]
+  tool = vimdiff
