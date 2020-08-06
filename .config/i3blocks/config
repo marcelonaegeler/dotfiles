@@ -1,0 +1,47 @@
+full_text= 
+align=center
+color=#666666
+separator=false
+separator_block_width=7
+
+[sound]
+command=node $HOME/.config/i3blocks/volume.js
+interval=1
+label=Vol 
+color=#A4C2F4
+
+[separator]
+
+[mic]
+command=node $HOME/.config/i3blocks/mic.js
+interval=1
+label=Mic 
+color=#000000
+background=#A4C2F4
+
+[separator]
+
+[memory]
+command=$HOME/.config/i3blocks/memory.sh
+label=MEM 
+interval=5
+
+
+# [weather]
+# command=curl -Ss 'https://wttr.in?0&T&Q' | cut -c 16- | head -2 | xargs echo
+# interval=3600
+# color=#A4C2F4
+
+[separator]
+
+[battery]
+command=$HOME/.config/i3blocks/battery.sh
+interval=10
+color=#A4C2F4
+
+[separator]
+
+[time]
+command=date +'  %Y-%m-%d %H:%M '
+interval=1
+color=#A4C2F4
